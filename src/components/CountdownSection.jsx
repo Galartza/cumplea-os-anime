@@ -12,8 +12,6 @@ const CountdownSection = () => {
   const [expired, setExpired] = useState(false);
 
   useEffect(() => {
-    // <-- Cambia aquí la fecha objetivo si hace falta.
-    // Usa formato ISO "YYYY-MM-DDTHH:mm:ss" (esto se interpreta como local en la mayoría de navegadores).
     const targetTime = new Date('2025-10-15T20:00:00').getTime();
 
     function update() {
@@ -21,7 +19,6 @@ const CountdownSection = () => {
       const distance = targetTime - now;
 
       if (distance <= 0) {
-        // Si la fecha ya pasó, paramos el contador y marcamos expirado
         setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
         setExpired(true);
         return;
@@ -37,12 +34,11 @@ const CountdownSection = () => {
       setTimeLeft({ days, hours, minutes, seconds });
     }
 
-    // primer cálculo inmediato para no esperar 1s
     update();
     const intervalId = setInterval(update, 1000);
 
     return () => clearInterval(intervalId);
-  }, []); // vacío a propósito: sólo queremos montar el intervalo una vez
+  }, []);
 
   const pad = (n) => String(n).padStart(2, '0');
 
@@ -54,70 +50,48 @@ const CountdownSection = () => {
   ];
 
   return (
-    <section className="section-padding bg-gradient-to-br from-purple-100 via-pink-50 to-yellow-100">
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-16 "
-        >
-          {/* título u otros elementos si los querés */}
-        </motion.div>
+    <section className="relative section-padding min-h-screen flex flex-col items-center justify-center overflow-hidden 
+             bg-[url('bg-contoudw.jpg')] bg-cover bg-center bg-fixed">
+      {/* Imagen de fondo absoluta */}
+      <img
+        src="bg-contoudw.jpg"
+        alt="Fondo de las cards"
+        className="absolute top-0 left-0 w-full h-full object-cover"
+        style={{ position: 'fixed', zIndex: -1 }}
+      />
+      {/* Overlay para contraste */}
+      <div className="absolute inset-0 bg-black/30"></div>
 
-        {/* Countdown Timer */}
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Countdown */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-4 md:gap-8 mb-16 z-10 relative"
+          transition={{ duration: 0.6 }}
+          className="flex flex-wrap justify-center gap-4 md:gap-8 mb-16"
         >
-          <div className="absolute -top-20 left-10 floating-animation" style={{ animationDelay: '4s' }}>
-            <img className="h-32" src="coku-chikito.png" alt="" />
-          </div>
           {expired ? (
-            <div className="text-center text-xl font-semibold">
+            <div className="text-center text-xl font-semibold text-white">
               ¡El evento ya empezó o la fecha es pasada!
             </div>
           ) : (
             <>
-              <div className="countdown-digit w-32 btn-dbz-bg">
-                <div className="text-3xl md:text-4xl font-bold">{timeLeft.days}</div>
-                <div className="text-sm md:text-base font-medium opacity-90">Días</div>
-              </div>
-              <div className="countdown-digit w-32 btn-dbz-bg">
-                <div className="text-3xl md:text-4xl font-bold">{pad(timeLeft.hours)}</div>
-                <div className="text-sm md:text-base font-medium opacity-90">Horas</div>
-              </div>
-              <div className="countdown-digit w-32 btn-dbz-bg">
-                <div className="text-3xl md:text-4xl font-bold">{pad(timeLeft.minutes)}</div>
-                <div className="text-sm md:text-base font-medium opacity-90">Minutos</div>
-              </div>
-              <div className="countdown-digit w-32 btn-dbz-bg">
-                <div className="text-3xl md:text-4xl font-bold">{pad(timeLeft.seconds)}</div>
-                <div className="text-sm md:text-base font-medium opacity-90">Segundos</div>
-              </div>
+              {['Días', 'Horas', 'Minutos', 'Segundos'].map((label, i) => {
+                const value = [timeLeft.days, pad(timeLeft.hours), pad(timeLeft.minutes), pad(timeLeft.seconds)][i];
+                return (
+                  <div key={i} className="countdown-digit w-28 sm:w-32 btn-dbz-bg p-4 ">
+                    <div className="text-3xl sm:text-4xl font-bold text-white">{value}</div>
+                    <div className="text-sm sm:text-base font-medium opacity-90 text-white">{label}</div>
+                  </div>
+                );
+              })}
             </>
           )}
         </motion.div>
 
         {/* Features Grid */}
-        <div className="relative max-w-6xl mx-auto p-8">
-          {/* Imagen de fondo en el fondo absoluto */}
-          <div className="absolute inset-0 z-0">
-            <img
-              src="bg-contoudw.jpg"
-              alt="Fondo de las cards"
-              className="w-full h-full object-cover"
-            />
-            {/* Overlay oscuro para mejorar contraste */}
-            <div className="absolute inset-0 bg-black/30"></div>
-          </div>
-
-          {/* Contenedor de las cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+        <div className="relative max-w-6xl mx-auto p-4 sm:p-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => (
               <motion.div
                 key={index}
@@ -125,9 +99,9 @@ const CountdownSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="glass-effect p-6 text-center hover:shadow-xl transition-all duration-300"
+                className="glass-effect p-6 text-center hover:shadow-xl transition-all duration-300 "
               >
-                <div className="btn-dbz-bg w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <div className="btn-dbz-bg w-16 h-16 flex items-center justify-center mx-auto mb-4 ">
                   <feature.icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold text-white drop-shadow-md mb-2">{feature.title}</h3>
@@ -136,8 +110,6 @@ const CountdownSection = () => {
             ))}
           </div>
         </div>
-
-
       </div>
     </section>
   );

@@ -38,7 +38,7 @@ function App() {
           {/* <PhotoCarousel /> */}
           <CountdownSection />
           <RSVPForm />
-          <GiftSection />
+          {/* <GiftSection /> */}
           <LocationSection />
           {/* <SocialShare /> */}
           <Footer />

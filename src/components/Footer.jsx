@@ -5,7 +5,7 @@ import { Heart, Sparkles, Gift } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-pink-500 to-yellow-400 text-white section-padding">
+    <footer className="bg-gradient-to-br from-[#D32F2F] to-[#F57C00] text-white section-padding">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -33,7 +33,7 @@ const Footer = () => {
           </div>
 
           {/* Event Reminder */}
-          <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 max-w-md mx-auto mb-8">
+          <div className="bg-white/20 backdrop-blur-sm  p-6 max-w-md mx-auto mb-8">
             <p className="font-semibold mb-2">📅 Recordatorio</p>
             <p className="text-sm opacity-90">
               Sábado 15 de Marzo • 8:00 PM<br />

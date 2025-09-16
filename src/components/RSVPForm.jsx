@@ -57,7 +57,7 @@ const RSVPForm = () => {
   };
 
   return (
-    <section id="rsvp" className="section-padding bg-white">
+    <section id="rsvp" className="section-padding bg-gradient-to-br from-[#D32F2F] to-[#F57C00]">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -69,7 +69,7 @@ const RSVPForm = () => {
           <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
             ¡Confirma Tu Asistencia!
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-white font-bold max-w-2xl mx-auto">
             Tu presencia hará que esta celebración sea aún más especial
           </p>
         </motion.div>
@@ -91,7 +91,7 @@ const RSVPForm = () => {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Tu nombre completo"
-                className="form-input w-full pl-12 pr-4 py-4 rounded-2xl text-lg"
+                className="form-input w-full pl-12 pr-4 py-4  text-lg"
                 required
               />
             </div>
@@ -111,7 +111,7 @@ const RSVPForm = () => {
                     onChange={handleChange}
                     className="sr-only"
                   />
-                  <div className={`p-4 rounded-2xl border-2 text-center transition-all duration-300 ${
+                  <div className={`p-4  border-2 text-center transition-all duration-300 ${
                     formData.attendance === 'yes'
                       ? 'border-pink-500 bg-pink-50 text-pink-700'
                       : 'border-gray-200 hover:border-pink-300'
@@ -129,7 +129,7 @@ const RSVPForm = () => {
                     onChange={handleChange}
                     className="sr-only"
                   />
-                  <div className={`p-4 rounded-2xl border-2 text-center transition-all duration-300 ${
+                  <div className={`p-4  border-2 text-center transition-all duration-300 ${
                     formData.attendance === 'no'
                       ? 'border-gray-500 bg-gray-50 text-gray-700'
                       : 'border-gray-200 hover:border-gray-300'
@@ -150,7 +150,7 @@ const RSVPForm = () => {
                 value={formData.song}
                 onChange={handleChange}
                 placeholder="¿Qué canción te gustaría escuchar? (opcional)"
-                className="form-input w-full pl-12 pr-4 py-4 rounded-2xl text-lg"
+                className="form-input w-full pl-12 pr-4 py-4  text-lg"
               />
             </div>
 
@@ -163,7 +163,7 @@ const RSVPForm = () => {
                 onChange={handleChange}
                 placeholder="Déjame un mensaje especial (opcional)"
                 rows="4"
-                className="form-input w-full pl-12 pr-4 py-4 rounded-2xl text-lg resize-none"
+                className="form-input w-full pl-12 pr-4 py-4  text-lg resize-none"
               />
             </div>
 
@@ -172,7 +172,7 @@ const RSVPForm = () => {
               type="submit"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="btn-primary w-full text-xl py-4 flex items-center justify-center space-x-2"
+              className="btn-dbz-bg btn-primary w-full text-xl py-4 flex items-center justify-center space-x-2"
             >
               <Send className="w-5 h-5" />
               <span>Enviar Confirmación</span>

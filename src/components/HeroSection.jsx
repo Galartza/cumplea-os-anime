@@ -10,6 +10,9 @@ const HeroSection = () => {
   <div className="absolute top-2 right-10 animate-float" style={{ animationDelay: '2s' }}>
     <img className="h-24 md:h-32" src="vegetaSJ.png" alt="" />
   </div>
+    <div className="absolute bottom-2 left-10 animate-float" style={{ animationDelay: '2s' }}>
+    <img className="h-24 md:h-32" src="coku-chikito.png" alt="" />
+  </div>
 
   <div className="container mx-auto px-4 text-center relative z-10">
     <motion.div
@@ -50,7 +53,7 @@ const HeroSection = () => {
           { icon: 'Clock', title: 'Hora', text: '8:00 PM', img: 'gokuimghero.jpg', color: 'text-yellow-500' },
           { icon: 'MapPin', title: 'Lugar', text: 'Salón de Fiestas Central', img: 'vegetaimghero.jpg', color: 'text-pink-500' },
         ].map((card, i) => (
-          <div key={i} className="glass-effect relative p-6 text-center overflow-hidden rounded-2xl shadow-lg">
+          <div key={i} className="glass-effect relative p-6 text-center overflow-hidden  shadow-lg">
             {/* Background Image */}
             <img
               src={card.img}

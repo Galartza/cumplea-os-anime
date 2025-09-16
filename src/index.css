@@ -102,7 +102,7 @@ body {
 }
 
 .map-container {
-  border-radius: 20px;
+  /* border-radius: 20px; */
   overflow: hidden;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
@@ -165,7 +165,7 @@ body {
 .btn-dbz-bg {
   position: relative;
   overflow: hidden;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   background: linear-gradient(270deg, #F57C00, #FFD600, #D32F2F, #1976D2);
   background-size: 800% 800%;
   animation: energy-bg 4s ease infinite;
