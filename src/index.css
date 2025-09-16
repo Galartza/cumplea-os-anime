@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --orange-kame: #F57C00;     /* Traje de Goku */
+  --blue-saiyan: #1976D2;     /* Aura/ropa Saiyan */
+  --yellow-ssj: #FFD600;      /* Super Saiyan */
+  --green-shenlong: #388E3C;  /* Dragón */
+  --red-kaioken: #D32F2F;     /* Energía */
+  --dark-contrast: #212121;   /* Oscuro para texto */
+  --white-bg: #FFFFFF;        /* Fondo limpio */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--orange-kame);
+  color: var(--dark-contrast);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.gradient-text {
+  background: (135deg, var(--orange-kame), var(--yellow-ssj));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.floating-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.pulse-animation {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.confetti-bg {
+  background-image: 
+    radial-gradient(circle at 20% 80%, var(--orange-kame) 2px, transparent 2px),
+    radial-gradient(circle at 80% 20%, var(--yellow-ssj) 2px, transparent 2px),
+    radial-gradient(circle at 40% 40%, var(--red-kaioken) 1px, transparent 1px);
+  background-size: 100px 100px, 80px 80px, 60px 60px;
+  background-position: 0 0, 40px 40px, 20px 20px;
+  animation: confetti-move 20s linear infinite;
+}
+
+@keyframes confetti-move {
+  0% { background-position: 0 0, 40px 40px, 20px 20px; }
+  100% { background-position: 100px 100px, 140px 140px, 120px 120px; }
+}
+
+.countdown-digit {
+  background: linear-gradient(135deg, var(--orange-kame), var(--yellow-ssj));
+  color: white;
+  border-radius: 12px;
+  padding: 1rem;
+  min-width: 80px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(213, 47, 47, 0.3); /* rojo kaioken suave */
+}
+
+.social-button {
+  transition: all 0.3s ease;
+}
+
+.social-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.photo-carousel {
+  scroll-behavior: smooth;
+}
+
+.photo-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.map-container {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.form-input {
+  border: 2px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(135deg, var(--orange-kame), var(--yellow-ssj)) border-box;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  box-shadow: 0 0 20px rgba(25, 118, 210, 0.3); /* azul Saiyan glow */
+}
+
+.btn-primary {
+  /* background-color: var(--red-kaioken); */
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  /* box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); */
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(25, 118, 210, 0.6);
+}
+
+.section-padding {
+  padding: 4rem 1rem;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 2rem 1rem;
+  }
+  
+  .countdown-digit {
+    min-width: 60px;
+    padding: 0.75rem;
+  }
+}
+.spin-medium {
+  animation: spin-medium 3s linear infinite;
+}
+
+@keyframes spin-medium {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
