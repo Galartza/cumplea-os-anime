@@ -61,7 +61,7 @@ const CountdownSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16 -mt-36"
+          className="text-center mb-16 "
         >
           {/* título u otros elementos si los querés */}
         </motion.div>

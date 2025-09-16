@@ -15,9 +15,9 @@ const WelcomeScreen = ({ onEnter }) => {
       <div className="absolute top-10 left-5 spin-medium">
         <img className="h-24" src="esferasdeldragon.png" alt="" />
       </div>
-      <div className="absolute top-20 right-10 floating-animation" style={{ animationDelay: '2s' }}>
+      {/* <div className="absolute top-20 right-10 floating-animation" style={{ animationDelay: '2s' }}>
         <img className="h-32" src="gohanSSJ2.png" alt="" />
-      </div>
+      </div> */}
       {/* <div className="absolute bottom-20 left-10 floating-animation" style={{ animationDelay: '4s' }}>
         <img className="h-32" src="gohanSSJ2.png" alt="" />
       </div> */}

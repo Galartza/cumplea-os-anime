@@ -5,15 +5,15 @@ import { Calendar, Clock, MapPin, Sparkles } from 'lucide-react';
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[#D32F2F] to-[#F57C00] overflow-hidden">
+    <section className="relative py-10 min-h-screen flex items-center justify-center bg-gradient-to-br from-[#D32F2F] to-[#F57C00] overflow-hidden">
       {/* Decorative elements */}
-      <div className="absolute top-20 right-10 floating-animation" style={{ animationDelay: '2s' }}>
+      <div className="absolute top-2 right-10 floating-animation" style={{ animationDelay: '2s' }}>
         <img className="h-32" src="vegetaSJ.png" alt="" />
       </div>
       {/* <div className="absolute top-20 right-20 floating-animation" style={{ animationDelay: '2s' }}>
         <img className="h-32" src="vegetaSJ.png" alt="" />
       </div> */}
-      <div className="absolute bottom-20 left-10 floating-animation" style={{ animationDelay: '4s' }}>
+      <div className="absolute bottom-10 left-10 floating-animation" style={{ animationDelay: '4s' }}>
         <img className="h-32" src="coku-chikito.png" alt="" />
       </div>
 
