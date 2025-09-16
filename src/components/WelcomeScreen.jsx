@@ -13,15 +13,15 @@ const WelcomeScreen = ({ onEnter }) => {
       <div className="absolute top-10 left-5 spin-medium">
         <img className="h-24" src="esferasdeldragon.png" alt="" />
       </div>
-      <div className="absolute top-5 right-10 floating-animation" style={{ animationDelay: '2s' }}>
-        <img className="h-32" src="vegetaSJ.png" alt="" />
-      </div>
-      <div className="absolute bottom-20 left-10 floating-animation" style={{ animationDelay: '4s' }}>
+      <div className="absolute top-20 right-10 floating-animation" style={{ animationDelay: '2s' }}>
         <img className="h-32" src="gohanSSJ2.png" alt="" />
       </div>
-      <div className="absolute bottom-10 right-5 floating-animation" style={{ animationDelay: '1s' }}>
+      {/* <div className="absolute bottom-20 left-10 floating-animation" style={{ animationDelay: '4s' }}>
+        <img className="h-32" src="gohanSSJ2.png" alt="" />
+      </div> */}
+      {/* <div className="absolute bottom-30 right-5 floating-animation" style={{ animationDelay: '1s' }}>
         <img className="h-32" src="coku-chikito.png" alt="" />
-      </div>
+      </div> */}
 
       <motion.div
         initial={{ opacity: 0, y: -50 }}
