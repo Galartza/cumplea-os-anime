@@ -74,6 +74,9 @@ const CountdownSection = () => {
           viewport={{ once: true }}
           className="flex flex-wrap justify-center gap-4 md:gap-8 mb-16 z-10 relative"
         >
+          <div className="absolute -top-20 left-10 floating-animation" style={{ animationDelay: '4s' }}>
+            <img className="h-32" src="coku-chikito.png" alt="" />
+          </div>
           {expired ? (
             <div className="text-center text-xl font-semibold">
               ¡El evento ya empezó o la fecha es pasada!
