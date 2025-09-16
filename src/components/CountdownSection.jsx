@@ -7,10 +7,12 @@ const CountdownSection = () => {
     days: 0,
     hours: 0,
     minutes: 0,
-    seconds: 0,
+    seconds: 0
   });
   const [expired, setExpired] = useState(false);
+  const [offsetY, setOffsetY] = useState(0); // para parallax
 
+  // Countdown logic
   useEffect(() => {
     const targetTime = new Date('2025-10-15T20:00:00').getTime();
 
@@ -36,33 +38,42 @@ const CountdownSection = () => {
 
     update();
     const intervalId = setInterval(update, 1000);
+
     return () => clearInterval(intervalId);
   }, []);
 
+  // Parallax scroll
+  useEffect(() => {
+    const handleScroll = () => setOffsetY(window.pageYOffset);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+
 const pad = (n) => String(n).padStart(2, '0');
 
+
   const features = [
-    { icon: Cake, title: 'Pastel Delicioso', description: 'Sabores increíbles' },
-    { icon: Music, title: 'Música Genial', description: 'DJ en vivo' },
-    { icon: Gift, title: 'Sorpresas', description: 'Regalos y juegos' },
-    { icon: Users, title: 'Grandes Amigos', description: 'Diversión garantizada' },
+    { icon: Cake, title: "Pastel Delicioso", description: "Sabores increíbles" },
+    { icon: Music, title: "Música Genial", description: "DJ en vivo" },
+    { icon: Gift, title: "Sorpresas", description: "Regalos y juegos" },
+    { icon: Users, title: "Grandes Amigos", description: "Diversión garantizada" }
   ];
 
   return (
     <section className="relative section-padding min-h-screen flex flex-col items-center justify-center overflow-hidden">
-      {/* Fondo */}
-      <div className="absolute inset-0 w-full h-full z-0">
-        {/* Desktop: parallax */}
-        <div
-          className="hidden md:block w-full h-full bg-[url('image-dbz-herosection.jpg')] bg-cover bg-center bg-fixed"
-        />
-        {/* Mobile: solo cover y centered */}
-        <div
-          className="block md:hidden w-full h-full bg-[url('bg-contoudw.jpg')] bg-cover bg-center"
-        />
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/30"></div>
-      </div>
+      {/* Fondo con parallax */}
+      <div
+        className="absolute top-0 left-0 w-full h-full z-0"
+        style={{
+          backgroundImage: "url('/bg-contoudw.jpg')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          transform: `translateY(${offsetY * 0.5}px)`, // efecto parallax
+        }}
+      />
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/30 z-0"></div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Countdown */}
@@ -118,3 +129,4 @@ const pad = (n) => String(n).padStart(2, '0');
 };
 
 export default CountdownSection;
+
