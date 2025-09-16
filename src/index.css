@@ -161,3 +161,18 @@ body {
     transform: rotate(360deg);
   }
 }
+
+.btn-dbz-bg {
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  background: linear-gradient(270deg, #F57C00, #FFD600, #D32F2F, #1976D2);
+  background-size: 800% 800%;
+  animation: energy-bg 4s ease infinite;
+}
+
+@keyframes energy-bg {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
