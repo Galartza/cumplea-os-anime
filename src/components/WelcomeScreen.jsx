@@ -12,7 +12,7 @@ const WelcomeScreen = ({ onEnter }) => {
     >
 
       {/* Decorative elements */}
-      <div className="absolute top-10 left-5 spin-medium">
+      <div className="absolute top-10 left-5 spin-medium drop-shadow-[4px_4px_1px_rgba(0,0,0,0.6)]">
         <img className="h-24" src="esferasdeldragon.png" alt="" />
       </div>
       {/* <div className="absolute top-20 right-10 floating-animation" style={{ animationDelay: '2s' }}>
@@ -62,9 +62,9 @@ const WelcomeScreen = ({ onEnter }) => {
         transition={{ duration: 0.5, delay: 1.1, type: 'spring', stiffness: 150 }}
         whileHover={{ scale: 1.05, boxShadow: '0 12px 35px rgba(244, 154, 194, 0.6)' }}
         whileTap={{ scale: 0.95 }}
-        className="btn-dbz-bg text-xl md:text-2xl px-5 py-2 flex justify-center items-center"
+        className="btn-dbz-bg text-xl md:text-2xl px-5 py-2 flex justify-center items-center drop-shadow-[4px_4px_1px_rgba(0,0,0,0.6)]"
       >
-        <img className='w-48 h-26 md:w-64 md:h-26 drop-shadow-[4px_4px_1px_rgba(0,0,0,0.6)]' src="vamos.png" alt="" />
+        <img className='w-32 h-26 md:w-64 md:h-26 drop-shadow-[4px_4px_1px_rgba(0,0,0,0.6)]' src="vamos.png" alt="" />
       </motion.button>
 
     </motion.div>

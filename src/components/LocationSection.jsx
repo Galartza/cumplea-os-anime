@@ -38,7 +38,7 @@ const LocationSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4 text-white">
             ¿Cómo Llegar?
           </h2>
-          <p className="text-xl text-gray-200 max-w-2xl mx-auto">
+          <p className="text-xl text-white font-bold max-w-2xl mx-auto">
             Aquí encontrarás toda la información para llegar al lugar de la celebración
           </p>
         </motion.div>
@@ -51,7 +51,7 @@ const LocationSection = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className="map-container"
+              className="map-container drop-shadow-[4px_4px_1px_rgba(0,0,0,0.6)]"
             >
               <div className="relative h-96 bg-transparent overflow-hidden shadow-lg">
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -80,12 +80,12 @@ const LocationSection = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
-              className="space-y-6"
+              className="space-y-6 "
             >
               <div className="glass-effect p-6">
-                <div className="flex items-start space-x-4">
+                <div className="flex items-start space-x-4 drop-shadow-[4px_4px_1px_rgba(0,0,0,0.6)]">
                   <div className="btn-dbz-bg p-3 flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-white" />
+                    <MapPin className="w-6 h-6 text-white drop-shadow-[4px_4px_1px_rgba(0,0,0,0.6)]" />
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-white mb-2">
@@ -98,24 +98,17 @@ const LocationSection = () => {
                 </div>
               </div>
 
-              <motion.button
-                onClick={openInMaps}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="btn-primary w-full text-lg py-4 flex items-center justify-center space-x-2"
-              >
-                <Navigation className="w-5 h-5" />
-                <span>Obtener Direcciones</span>
-              </motion.button>
-
               <div className="bg-black/30 p-6 border-2 border-dashed border-[var(--orange-kame)]">
                 <h4 className="font-semibold text-white mb-2">Información Adicional</h4>
                 <ul className="text-sm text-gray-200 space-y-1">
-                  <li>• Estacionamiento gratuito disponible</li>
-                  <li>• Acceso para personas con movilidad reducida</li>
-                  <li>• Transporte público: Líneas 10, 37, 152</li>
+                  <li>🎂 Habrá merienda y torta para todos</li>
+                  <li>🎈 Traer ropa cómoda para jugar</li>
+                  <li>🎁 Si deseas traer regalo,si te ayuda Benja ama los dinosaurios y los Legos</li>
+                  <li>🕹️ Habrá juegos y animación para chicos</li>
+                  <li>📸 ¡No olvides sonreír para las fotos!</li>
                 </ul>
               </div>
+
             </motion.div>
           </div>
         </div>

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, User, Music, MessageCircle } from 'lucide-react';
@@ -13,9 +12,12 @@ const RSVPForm = () => {
   });
   const { toast } = useToast();
 
+  // 👉 Reemplaza este número con el del anfitrión (incluye código de país, sin + ni 0 iniciales)
+  const hostPhone = "543562564401";
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     if (!formData.name || !formData.attendance) {
       toast({
         title: "¡Ups! Faltan datos",
@@ -25,7 +27,7 @@ const RSVPForm = () => {
       return;
     }
 
-    // Save to localStorage
+    // Guardar en localStorage
     const existingRSVPs = JSON.parse(localStorage.getItem('birthdayRSVPs') || '[]');
     const newRSVP = {
       ...formData,
@@ -35,12 +37,27 @@ const RSVPForm = () => {
     existingRSVPs.push(newRSVP);
     localStorage.setItem('birthdayRSVPs', JSON.stringify(existingRSVPs));
 
+    // Crear mensaje de WhatsApp
+    const attendanceText =
+      formData.attendance === 'yes'
+        ? '✅ Sí, estaré ahí'
+        : '❌ No podré asistir';
+
+    let message = `🎉 Confirmación de asistencia 🎉\n\n`;
+    message += `👤 Nombre: ${formData.name}\n`;
+    message += `📌 Asistencia: ${attendanceText}\n`;
+    if (formData.song) message += `🎶 Canción pedida: ${formData.song}\n`;
+    if (formData.message) message += `💌 Mensaje: ${formData.message}\n`;
+
+    const url = `https://wa.me/${hostPhone}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+
     toast({
-      title: "¡Confirmación recibida! 🎉",
-      description: "Gracias por confirmar tu asistencia. ¡Te esperamos!",
+      title: "¡Confirmación enviada por WhatsApp! 🎉",
+      description: "Gracias por confirmar tu asistencia.",
     });
 
-    // Reset form
+    // Resetear formulario
     setFormData({
       name: '',
       attendance: '',
@@ -82,7 +99,7 @@ const RSVPForm = () => {
           className="max-w-2xl mx-auto"
         >
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Name Input */}
+            {/* Nombre */}
             <div className="relative">
               <User className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
               <input
@@ -91,12 +108,12 @@ const RSVPForm = () => {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Tu nombre completo"
-                className="form-input w-full pl-12 pr-4 py-4  text-lg"
+                className="form-input w-full pl-12 pr-4 py-4 text-lg"
                 required
               />
             </div>
 
-            {/* Attendance Selection */}
+            {/* Asistencia */}
             <div className="space-y-3">
               <label className="block text-lg font-semibold text-gray-800">
                 ¿Podrás acompañarme?
@@ -111,11 +128,13 @@ const RSVPForm = () => {
                     onChange={handleChange}
                     className="sr-only"
                   />
-                  <div className={`p-4  border-2 text-center transition-all duration-300 ${
-                    formData.attendance === 'yes'
-                      ? 'border-pink-500 bg-pink-50 text-pink-700'
-                      : 'border-gray-200 hover:border-pink-300'
-                  }`}>
+                  <div
+                    className={`p-4 border-2 text-center transition-all duration-300 ${
+                      formData.attendance === 'yes'
+                        ? 'border-pink-500 bg-pink-50 text-pink-700'
+                        : 'border-gray-200 hover:border-pink-300'
+                    }`}
+                  >
                     <div className="text-2xl mb-2">🎉</div>
                     <div className="font-semibold">¡Sí, estaré ahí!</div>
                   </div>
@@ -129,11 +148,13 @@ const RSVPForm = () => {
                     onChange={handleChange}
                     className="sr-only"
                   />
-                  <div className={`p-4  border-2 text-center transition-all duration-300 ${
-                    formData.attendance === 'no'
-                      ? 'border-gray-500 bg-gray-50 text-gray-700'
-                      : 'border-gray-200 hover:border-gray-300'
-                  }`}>
+                  <div
+                    className={`p-4 border-2 text-center transition-all duration-300 ${
+                      formData.attendance === 'no'
+                        ? 'border-gray-500 bg-gray-50 text-gray-700'
+                        : 'border-gray-200 hover:border-gray-300'
+                    }`}
+                  >
                     <div className="text-2xl mb-2">😢</div>
                     <div className="font-semibold">No podré asistir</div>
                   </div>
@@ -141,7 +162,7 @@ const RSVPForm = () => {
               </div>
             </div>
 
-            {/* Song Request */}
+            {/* Canción */}
             <div className="relative">
               <Music className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
               <input
@@ -149,12 +170,12 @@ const RSVPForm = () => {
                 name="song"
                 value={formData.song}
                 onChange={handleChange}
-                placeholder="¿Qué canción te gustaría escuchar? (opcional)"
-                className="form-input w-full pl-12 pr-4 py-4  text-lg"
+                placeholder="Canción que no puede faltar (opcional)"
+                className="form-input w-full pl-12 pr-4 py-4 text-lg"
               />
             </div>
 
-            {/* Message */}
+            {/* Mensaje */}
             <div className="relative">
               <MessageCircle className="absolute left-4 top-6 w-5 h-5 text-gray-400" />
               <textarea
@@ -162,20 +183,20 @@ const RSVPForm = () => {
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="Déjame un mensaje especial (opcional)"
-                rows="4"
-                className="form-input w-full pl-12 pr-4 py-4  text-lg resize-none"
+                rows={4}
+                className="form-input w-full pl-12 pr-4 py-4 text-lg resize-none"
               />
             </div>
 
-            {/* Submit Button */}
+            {/* Botón */}
             <motion.button
               type="submit"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="btn-dbz-bg btn-primary w-full text-xl py-4 flex items-center justify-center space-x-2"
+              className="btn-dbz-bg btn-primary w-full text-xl py-4 flex items-center justify-center space-x-2 drop-shadow-[4px_4px_1px_rgba(0,0,0,0.6)]"
             >
-              <Send className="w-5 h-5" />
-              <span>Enviar Confirmación</span>
+              <Send className="w-5 h-5 drop-shadow-[4px_4px_1px_rgba(0,0,0,0.6)]" />
+              <span className='drop-shadow-[4px_4px_1px_rgba(0,0,0,0.6)]'>Confirmar por WhatsApp</span>
             </motion.button>
           </form>
         </motion.div>

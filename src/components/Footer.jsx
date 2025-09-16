@@ -16,27 +16,27 @@ const Footer = () => {
         >
           {/* Decorative Icons */}
           <div className="flex justify-center space-x-8 mb-8">
-            <Sparkles className="w-8 h-8 floating-animation" />
-            <Gift className="w-8 h-8 floating-animation" style={{ animationDelay: '1s' }} />
-            <Heart className="w-8 h-8 floating-animation" style={{ animationDelay: '2s' }} />
+            <img src='gokussj4daima.png' className="w-32 h-36 floating-animation drop-shadow-[2px_1px_1px_rgba(0,0,0,0.6)]" />
+            <img src='picolodaima.png' className="w-32 h-36 floating-animation drop-shadow-[2px_1px_1px_rgba(0,0,0,0.6)]" style={{ animationDelay: '1s' }} />
+            <img src='vegetassj3daima.png' className="w-32 h-36 floating-animation drop-shadow-[2px_1px_1px_rgba(0,0,0,0.6)]" style={{ animationDelay: '2s' }} />
           </div>
 
           {/* Main Message */}
           <div className="max-w-2xl mx-auto mb-8">
             <p className="text-2xl md:text-3xl font-bold mb-4">
-              ¡Gracias por ser parte de mi celebración!
+              ¡Gracias por ser parte de mi fiesta!
             </p>
             <p className="text-lg opacity-90">
               Tu presencia es lo que hace que cada momento sea especial. 
-              ¡Nos vemos en la fiesta más increíble del año!
+              ¡Nos vemos en el cumple más increíble del año!
             </p>
           </div>
 
           {/* Event Reminder */}
-          <div className="bg-white/20 backdrop-blur-sm  p-6 max-w-md mx-auto mb-8">
+          <div className="bg-white/20 backdrop-blur-sm  p-6 max-w-md mx-auto mb-8 ">
             <p className="font-semibold mb-2">📅 Recordatorio</p>
             <p className="text-sm opacity-90">
-              Sábado 15 de Marzo • 8:00 PM<br />
+              Sábado 15 de Octubre • 16:00 PM hasta 18:00 34<br />
               Salón de Fiestas Central
             </p>
           </div>

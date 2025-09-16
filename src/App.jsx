@@ -11,6 +11,7 @@ import GiftSection from '@/components/GiftSection';
 import LocationSection from '@/components/LocationSection';
 import SocialShare from '@/components/SocialShare';
 import Footer from '@/components/Footer';
+import MusicPlayer from '@/components/MusicPlayer';
 
 function App() {
   const [showWelcome, setShowWelcome] = useState(true);
@@ -43,6 +44,7 @@ function App() {
           {/* <SocialShare /> */}
           <Footer />
           <Toaster />
+          <MusicPlayer />
         </div>
       )}
     </>

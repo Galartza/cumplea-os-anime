@@ -13,7 +13,7 @@ const CountdownSection = () => {
 
   // Countdown logic
   useEffect(() => {
-    const targetTime = new Date('2025-10-15T20:00:00').getTime();
+    const targetTime = new Date('2025-10-15T16:00:00').getTime();
 
     function update() {
       const now = Date.now();
@@ -68,7 +68,7 @@ const pad = (n) => String(n).padStart(2, '0');
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
-          className="flex flex-wrap justify-center gap-4 md:gap-8 mb-16"
+          className="flex flex-wrap justify-center gap-4 md:gap-8 mb-16 drop-shadow-[4px_4px_1px_rgba(0,0,0,0.6)]"
         >
           {expired ? (
             <div className="text-center text-xl font-semibold text-white">
@@ -79,9 +79,9 @@ const pad = (n) => String(n).padStart(2, '0');
               {['Días', 'Horas', 'Minutos', 'Segundos'].map((label, i) => {
                 const value = [timeLeft.days, pad(timeLeft.hours), pad(timeLeft.minutes), pad(timeLeft.seconds)][i];
                 return (
-                  <div key={i} className="countdown-digit w-28 sm:w-32 btn-dbz-bg p-4 rounded-lg">
-                    <div className="text-3xl sm:text-4xl font-bold text-white">{value}</div>
-                    <div className="text-sm sm:text-base font-medium opacity-90 text-white">{label}</div>
+                  <div key={i} className="countdown-digit w-28 sm:w-32 btn-dbz-bg p-4 drop-shadow-[4px_4px_1px_rgba(0,0,0,0.6)]">
+                    <div className="text-3xl sm:text-4xl font-bold text-white drop-shadow-[4px_4px_1px_rgba(0,0,0,0.6)]">{value}</div>
+                    <div className="text-sm sm:text-base font-medium opacity-90 text-white drop-shadow-[4px_4px_1px_rgba(0,0,0,0.6)]">{label}</div>
                   </div>
                 );
               })}
@@ -99,13 +99,13 @@ const pad = (n) => String(n).padStart(2, '0');
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="glass-effect p-6 text-center hover:shadow-xl transition-all duration-300 rounded-2xl"
+                className="glass-effect p-6 text-center hover:shadow-xl transition-all duration-300 "
               >
-                <div className="btn-dbz-bg w-16 h-16 flex items-center justify-center mx-auto mb-4 rounded-full">
-                  <feature.icon className="w-8 h-8 text-white" />
+                <div className="btn-dbz-bg w-16 h-16 flex items-center justify-center mx-auto mb-4 drop-shadow-[2px_1px_1px_rgba(0,0,0,0.6)]">
+                  <feature.icon className="w-8 h-8 text-white drop-shadow-[4px_4px_1px_rgba(0,0,0,0.6)]" />
                 </div>
-                <h3 className="text-xl font-semibold text-white drop-shadow-md mb-2">{feature.title}</h3>
-                <p className="text-white drop-shadow-sm">{feature.description}</p>
+                <h3 className="text-xl font-semibold text-white drop-shadow-[4px_4px_1px_rgba(0,0,0,0.6)] mb-2">{feature.title}</h3>
+                <p className="text-white drop-shadow-[4px_4px_1px_rgba(0,0,0,0.6)]">{feature.description}</p>
               </motion.div>
             ))}
           </div>
