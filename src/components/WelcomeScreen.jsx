@@ -4,11 +4,13 @@ import { Sparkles, PartyPopper } from 'lucide-react';
 
 const WelcomeScreen = ({ onEnter }) => {
   return (
+    // En tu div padre (WelcomeScreen) reemplaza:
     <motion.div
       initial={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.5 } }}
-      className="fixed inset-0 z-50 flex flex-col items-center justify-center from-pink-100 via-white to-yellow-100 p-4 text-center overflow-hidden"
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center p-4 text-center overflow-hidden bg-gradient-to-br from-[#D32F2F] to-[#F57C00]"
     >
+
       {/* Decorative elements */}
       <div className="absolute top-10 left-5 spin-medium">
         <img className="h-24" src="esferasdeldragon.png" alt="" />
@@ -28,11 +30,11 @@ const WelcomeScreen = ({ onEnter }) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2, type: 'spring', stiffness: 100 }}
       >
-<img 
-  className="w-48 h-48 md:w-64 md:h-64 object-cover pulse-animation mx-auto drop-shadow-[4px_4px_1px_rgba(0,0,0,0.6)]"
-  alt="dragon ball z" 
-  src="dragonballz-inicio.png" 
-/>
+        <img
+          className="w-48 h-48 md:w-64 md:h-64 object-cover pulse-animation mx-auto drop-shadow-[4px_4px_1px_rgba(0,0,0,0.6)]"
+          alt="dragon ball z"
+          src="dragonballz-inicio.png"
+        />
       </motion.div>
 
       <motion.h1
@@ -53,17 +55,17 @@ const WelcomeScreen = ({ onEnter }) => {
       >
         ¡TE INVITO A MI CUMPLEAÑOS!
       </motion.p> */}
-<motion.button
-  onClick={onEnter}
-  initial={{ opacity: 0, scale: 0.5 }}
-  animate={{ opacity: 1, scale: 1 }}
-  transition={{ duration: 0.5, delay: 1.1, type: 'spring', stiffness: 150 }}
-  whileHover={{ scale: 1.05, boxShadow: '0 12px 35px rgba(244, 154, 194, 0.6)' }}
-  whileTap={{ scale: 0.95 }}
-  className="btn-dbz-bg text-xl md:text-2xl px-10 py-5 flex justify-center items-center"
->
-  <img className='w-48 h-26 md:w-64 md:h-26 drop-shadow-[4px_4px_1px_rgba(0,0,0,0.6)]' src="vamos.png" alt="" />
-</motion.button>
+      <motion.button
+        onClick={onEnter}
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, delay: 1.1, type: 'spring', stiffness: 150 }}
+        whileHover={{ scale: 1.05, boxShadow: '0 12px 35px rgba(244, 154, 194, 0.6)' }}
+        whileTap={{ scale: 0.95 }}
+        className="btn-dbz-bg text-xl md:text-2xl px-10 py-5 flex justify-center items-center"
+      >
+        <img className='w-48 h-26 md:w-64 md:h-26 drop-shadow-[4px_4px_1px_rgba(0,0,0,0.6)]' src="vamos.png" alt="" />
+      </motion.button>
 
     </motion.div>
   );

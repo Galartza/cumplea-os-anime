@@ -22,11 +22,12 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: var(--orange-kame);
+  background: linear-gradient(13deg, var(--red-kaioken), var(--orange-kame)) ;
   color: var(--dark-contrast);
   line-height: 1.6;
   overflow-x: hidden;
 }
+
 
 .gradient-text {
   background: (135deg, var(--orange-kame), var(--yellow-ssj));
