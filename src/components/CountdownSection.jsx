@@ -54,7 +54,7 @@ const pad = (n) => String(n).padStart(2, '0');
       <div className="absolute inset-0 w-full h-full z-0">
         {/* Desktop: parallax */}
         <div
-          className="hidden md:block w-full h-full bg-[url('bg-contoudw.jpg')] bg-cover bg-center bg-fixed"
+          className="hidden md:block w-full h-full bg-[url('image-dbz-herosection.jpg')] bg-cover bg-center bg-fixed"
         />
         {/* Mobile: solo cover y centered */}
         <div
