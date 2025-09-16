@@ -10,7 +10,6 @@ const CountdownSection = () => {
     seconds: 0
   });
   const [expired, setExpired] = useState(false);
-  const [offsetY, setOffsetY] = useState(0); // para parallax
 
   // Countdown logic
   useEffect(() => {
@@ -42,16 +41,7 @@ const CountdownSection = () => {
     return () => clearInterval(intervalId);
   }, []);
 
-  // Parallax scroll
-  useEffect(() => {
-    const handleScroll = () => setOffsetY(window.pageYOffset);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-
 const pad = (n) => String(n).padStart(2, '0');
-
 
   const features = [
     { icon: Cake, title: "Pastel Delicioso", description: "Sabores increíbles" },
@@ -61,17 +51,14 @@ const pad = (n) => String(n).padStart(2, '0');
   ];
 
   return (
-    <section className="relative section-padding min-h-screen flex flex-col items-center justify-center overflow-hidden">
-      {/* Fondo con parallax */}
-      <div
-        className="absolute top-0 left-0 w-full h-full z-0"
-        style={{
-          backgroundImage: "url('/bg-contoudw.jpg')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          transform: `translateY(${offsetY * 0.5}px)`, // efecto parallax
-        }}
-      />
+    <section
+      className="relative section-padding min-h-screen flex flex-col items-center justify-center overflow-hidden
+        bg-cover bg-center"
+      style={{
+        backgroundImage: "url('/bg-contoudw.jpg')",
+        backgroundAttachment: window.innerWidth > 768 ? 'fixed' : 'scroll', // fixed solo desktop
+      }}
+    >
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/30 z-0"></div>
 
