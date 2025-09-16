@@ -35,7 +35,7 @@ function App() {
       {!showWelcome && (
         <div className="min-h-screen bg-white">
           <HeroSection />
-          <PhotoCarousel />
+          {/* <PhotoCarousel /> */}
           <CountdownSection />
           <RSVPForm />
           <GiftSection />

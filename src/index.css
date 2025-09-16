@@ -78,7 +78,6 @@ body {
 .countdown-digit {
   background: linear-gradient(135deg, var(--orange-kame), var(--yellow-ssj));
   color: white;
-  border-radius: 12px;
   padding: 1rem;
   min-width: 80px;
   text-align: center;
