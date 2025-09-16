@@ -108,7 +108,7 @@ const LocationSection = () => {
                 <span>Obtener Direcciones</span>
               </motion.button>
 
-              <div className="bg-black/30 p-6 border-2 border-dashed border-pink-200">
+              <div className="bg-black/30 p-6 border-2 border-dashed border-[var(--orange-kame)]">
                 <h4 className="font-semibold text-white mb-2">Información Adicional</h4>
                 <ul className="text-sm text-gray-200 space-y-1">
                   <li>• Estacionamiento gratuito disponible</li>
