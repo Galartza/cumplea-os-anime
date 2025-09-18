@@ -43,7 +43,7 @@ const WelcomeScreen = ({ onEnter }) => {
         transition={{ duration: 0.7, delay: 0.5 }}
         className="text-4xl md:text-6xl lg:text-7xl font-bold my-6 flex flex-col space-y-4 justify-center items-center"
       >
-        <img className='w-72 h-24 md:w-64 md:h-26 drop-shadow-[4px_4px_1px_rgba(0,0,0,0.6)]' src="BEnjamin.png" alt="" />
+        <img className='w-72 h-24 md:w-64 md:h-26 drop-shadow-[4px_4px_1px_rgba(0,0,0,0.6)]' src="benjamin.png" alt="" />
         <img className='w-48 h-26 md:w-64 md:h-26 drop-shadow-[4px_4px_1px_rgba(0,0,0,0.6)]' src="10-años.png" alt="" />
       </motion.h1>
 
